@@ -2,8 +2,8 @@
 
 #include <string>
 
-#include "Unreal/FScriptArray.hpp"
-#include "Unreal/TArray.hpp"
+#include "Unreal/Core/Containers/ContainersFwd.hpp"
+#include "Unreal/Core/Containers/ScriptArray.hpp"
 
 #include "ST_PlayerInfo.hpp"
 
