@@ -1,12 +1,13 @@
 /client/Output
 
 # unreal auto generates these Content folders, we can ignore them until they actually get used
-/client/pseudoregalia/Content/Collections
-/client/pseudoregalia/Content/Developers
-/client/pseudoregalia/Build
-/client/pseudoregalia/DerivedDataCache
-/client/pseudoregalia/Intermediate
-/client/pseudoregalia/Saved
+*/*/Content/Collections
+*/*/Content/Developers
+*/*/Build
+*/*/DerivedDataCache
+*/*/Intermediate
+*/*/Saved
+*/*/WindowsNoEditor
 
 /server/pseudo-multi.pem
 /server/server
