@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.18)
 
-set(TARGET PseudoregaliaMultiplayerMod)
+set(TARGET BlueFireMultiplayerMod)
 project(${TARGET})
 
 add_library(${TARGET} SHARED "dllmain.cpp" "src/Client.cpp" "src/Logger.cpp" "src/Settings.cpp")

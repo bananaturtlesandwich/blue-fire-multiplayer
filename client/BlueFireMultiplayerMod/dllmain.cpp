@@ -11,17 +11,17 @@
 #include "Logger.hpp"
 #include "Settings.hpp"
 
-class PseudoregaliaMultiplayerMod : public RC::CppUserModBase
+class BlueFireMultiplayerMod : public RC::CppUserModBase
 {
 public:
     bool sync_items_hooked = false;
 
-    PseudoregaliaMultiplayerMod() : CppUserModBase()
+    BlueFireMultiplayerMod() : CppUserModBase()
     {
-        ModName = STR("PseudoregaliaMultiplayerMod");
+        ModName = STR("BlueFireMultiplayerMod");
         ModVersion = STR("1.1");
-        ModDescription = STR("Multiplayer mod for Pseudoregalia");
-        ModAuthors = STR("highrow623");
+        ModDescription = STR("Multiplayer mod for Blue Fire");
+        ModAuthors = STR("highrow623 and spuds");
         // Do not change this unless you want to target a UE4SS version
         // other than the one you're currently building with somehow.
         //ModIntendedSDKVersion = STR("2.6");
@@ -29,7 +29,7 @@ public:
         Settings::Load();
     }
 
-    ~PseudoregaliaMultiplayerMod() override
+    ~BlueFireMultiplayerMod() override
     {
     }
 
@@ -93,15 +93,15 @@ public:
     }
 };
 
-#define PSEUDOREGALIA_MULTIPLAYER_MOD_API __declspec(dllexport)
+#define BLUE_FIRE_MULTIPLAYER_MOD_API __declspec(dllexport)
 extern "C"
 {
-    PSEUDOREGALIA_MULTIPLAYER_MOD_API RC::CppUserModBase* start_mod()
+    BLUE_FIRE_MULTIPLAYER_MOD_API RC::CppUserModBase* start_mod()
     {
-        return new PseudoregaliaMultiplayerMod();
+        return new BlueFireMultiplayerMod();
     }
 
-    PSEUDOREGALIA_MULTIPLAYER_MOD_API void uninstall_mod(RC::CppUserModBase* mod)
+    BLUE_FIRE_MULTIPLAYER_MOD_API void uninstall_mod(RC::CppUserModBase* mod)
     {
         delete mod;
     }

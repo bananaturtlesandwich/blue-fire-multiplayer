@@ -6,7 +6,7 @@
 
 void Logger::Log(std::wstring message, LogType log_level)
 {
-    auto full_message = L"[PseudoregaliaMultiplayerMod] " + message + L"\n";
+    auto full_message = L"[BlueFireMultiplayerMod] " + message + L"\n";
     switch (log_level)
     {
     case LogType::Default:

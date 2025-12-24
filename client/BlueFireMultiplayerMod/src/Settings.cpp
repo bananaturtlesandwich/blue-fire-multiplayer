@@ -17,14 +17,14 @@ namespace
     std::wstring ToWide(const std::string&);
 
     // if you run from the executable directory
-    const std::string settings_filename1 = "Mods/PseudoregaliaMultiplayerMod/settings.toml";
+    const std::string settings_filename1 = "Mods/BlueFireMultiplayerMod/settings.toml";
     // if you run from the game directory
-    const std::string settings_filename2 = "pseudoregalia/Binaries/Win64/" + settings_filename1;
+    const std::string settings_filename2 = "Blue Fire/Binaries/Win64/" + settings_filename1;
 
     std::string address = "127.0.0.1";
     std::string port = "23432";
     std::array<uint8_t, 3> color = { 0x00, 0x7f, 0xff };
-	std::string name = "Sybil";
+	std::string name = "Umbra";
 }
 
 void Settings::Load()
@@ -54,8 +54,8 @@ void Settings::Load()
     Log(L"Loading settings", LogType::Loud);
     ParseSetting(address, settings_table, "server.address");
     ParseSetting(port, settings_table, "server.port");
-    ParseSetting(color, settings_table, "sybil.color");
-    ParseSetting(name, settings_table, "sybil.name");
+    ParseSetting(color, settings_table, "umbra.color");
+    ParseSetting(name, settings_table, "umbra.name");
 }
 
 const std::string& Settings::GetAddress()

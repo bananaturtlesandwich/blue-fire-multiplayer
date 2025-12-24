@@ -232,7 +232,7 @@ void Client::OnSceneLoad(std::wstring level)
     // we clear spawned_ghosts here because being in a new scene means they're all gone anyway
     spawned_ghosts.clear();
     current_zone = HashW(level);
-    if (level == L"TitleScreen" || level == L"EndScreen")
+    if (level == L"MainMenu")
     {
         queue_disconnect = true;
     }
