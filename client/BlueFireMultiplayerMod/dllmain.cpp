@@ -51,6 +51,7 @@ public:
                     }
                     RC::Unreal::UObjectGlobals::RegisterHook(func, sync_info, nop, nullptr);
                     Log(L"Registered hook for \"SyncInfo\" in \"BP_PM_Manager_C\"", LogType::Loud);
+                    RC::Unreal::UObjectGlobals::RegisterHook(actor->GetFunctionByName(L"SpawnGhost"), [](RC::Unreal::UnrealScriptFunctionCallableContext& context, void* customdata) { Log(fmt::format(L"spawned a ghost for player {}", context.GetParams<FST_PlayerInfo>().id));  }, nop, nullptr);
                     sync_items_hooked = true;
                 }
             }

@@ -336,7 +336,17 @@ uint32_t Client::SetPlayerInfo(const FST_PlayerInfo& info)
         bool sent = TrySendUpdate(info, millis);
         if (!sent)
         {
-            queued_update = { info, millis };
+            queued_update = {
+                FST_PlayerInfo {
+                    .location_x = info.location_x,
+                    .location_y = info.location_y,
+                    .location_z = info.location_z,
+                    .rotation_x = info.rotation_x,
+                    .rotation_y = info.rotation_y,
+                    .rotation_z = info.rotation_z,
+                },
+                millis
+            };
         }
         return millis;
     }
