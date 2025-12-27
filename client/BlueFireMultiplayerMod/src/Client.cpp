@@ -53,14 +53,14 @@ namespace
     void SerializeU8(uint8_t, boost::array<uint8_t, SEND>&, size_t&);
     void SerializeU32(uint32_t, boost::array<uint8_t, SEND>&, size_t&);
     void SerializeF32(float, boost::array<uint8_t, SEND>&, size_t&);
-    void SerializeLocator(double, boost::array<uint8_t, SEND>&, size_t&);
-    void SerializeRotator(double, boost::array<uint8_t, SEND>&, size_t&);
+    void SerializeLocator(float, boost::array<uint8_t, SEND>&, size_t&);
+    void SerializeRotator(float, boost::array<uint8_t, SEND>&, size_t&);
 
     uint8_t DeserializeU8(const boost::array<uint8_t, RECV>&, size_t&);
     uint32_t DeserializeU32(const boost::array<uint8_t, RECV>&, size_t&);
     float DeserializeF32(const boost::array<uint8_t, RECV>&, size_t&);
-    double DeserializeLocator(const boost::array<uint8_t, RECV>&, size_t&);
-    double DeserializeRotator(const boost::array<uint8_t, RECV>&, size_t&);
+    float DeserializeLocator(const boost::array<uint8_t, RECV>&, size_t&);
+    float DeserializeRotator(const boost::array<uint8_t, RECV>&, size_t&);
 
     bool queue_connect = false;
     bool queue_disconnect = false;
@@ -184,7 +184,7 @@ namespace
             }
 
             // distance from lower as a percentage
-            double pct = double(lower_dist) / double(lower_dist + upper_dist);
+            float pct = float(lower_dist) / float(lower_dist + upper_dist);
             return State
             {
                 .info = FST_PlayerInfo
@@ -605,16 +605,16 @@ void SerializeF32(float src, boost::array<uint8_t, SEND>& buf, size_t& pos)
 }
 
 // Casts src to a float, then serializes that into 4 bytes of buf starting at pos and increments pos by 4.
-void SerializeLocator(double src, boost::array<uint8_t, SEND>& buf, size_t& pos)
+void SerializeLocator(float src, boost::array<uint8_t, SEND>& buf, size_t& pos)
 {
-    SerializeF32(float(src), buf, pos);
+    SerializeF32(src, buf, pos);
 }
 
 // Maps src from the range [-180.0, 180.0] to [0, 255], serializes that into 1 byte of buf starting at pos, and
 // increments pos by 1.
-void SerializeRotator(double src, boost::array<uint8_t, SEND>& buf, size_t& pos)
+void SerializeRotator(float src, boost::array<uint8_t, SEND>& buf, size_t& pos)
 {
-    double scaled = (src + 180.0) * 256.0 / 360.0;
+    float scaled = (src + 180.0) * 256.0 / 360.0;
     SerializeU8(uint8_t(scaled), buf, pos);
 }
 
@@ -646,17 +646,17 @@ float DeserializeF32(const boost::array<uint8_t, RECV>& buf, size_t& pos)
     return std::bit_cast<float>(bits);
 }
 
-// Deserializes 4 bytes of buf into a float starting at pos and increments pos by 4, then casts the float to a double.
-double DeserializeLocator(const boost::array<uint8_t, RECV>& buf, size_t& pos)
+// Deserializes 4 bytes of buf into a float starting at pos and increments pos by 4, then casts the float to a float.
+float DeserializeLocator(const boost::array<uint8_t, RECV>& buf, size_t& pos)
 {
-    return double(DeserializeF32(buf, pos));
+    return DeserializeF32(buf, pos);
 }
 
 // Deserializes 1 byte of buf starting at pos and increments pos by 1, then maps that byte to the range [-180.0, 180.0].
-double DeserializeRotator(const boost::array<uint8_t, RECV>& buf, size_t& pos)
+float DeserializeRotator(const boost::array<uint8_t, RECV>& buf, size_t& pos)
 {
     uint8_t byte = DeserializeU8(buf, pos);
-    return double(byte) * 360.0 / 256.0 - 180.0;
+    return float(byte) * 360.0 / 256.0 - 180.0;
 }
 
 // Calculates milliseconds since the first update. This function should only be called if timers has a value.

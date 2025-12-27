@@ -1,15 +1,15 @@
 [submodule "client/RE-UE4SS"]
 	path = client/RE-UE4SS
 	url = https://github.com/UE4SS-RE/RE-UE4SS.git
-[submodule "client/PseudoregaliaMultiplayerMod/deps/wswrap"]
-	path = client/PseudoregaliaMultiplayerMod/deps/wswrap
-	url = https://github.com/black-sliver/wswrap.git
-[submodule "client/PseudoregaliaMultiplayerMod/deps/websocketpp"]
-	path = client/PseudoregaliaMultiplayerMod/deps/websocketpp
-	url = https://github.com/zaphoyd/websocketpp.git
-[submodule "client/PseudoregaliaMultiplayerMod/deps/json"]
-	path = client/PseudoregaliaMultiplayerMod/deps/json
-	url = https://github.com/nlohmann/json.git
-[submodule "client/PseudoregaliaMultiplayerMod/deps/tomlplusplus"]
-	path = client/PseudoregaliaMultiplayerMod/deps/tomlplusplus
-	url = https://github.com/marzer/tomlplusplus.git
+[submodule "client/BlueFireMultiplayerMod/deps/wswrap"]
+	path = client/BlueFireMultiplayerMod/deps/wswrap
+	url = https://github.com/black-sliver/wswrap
+[submodule "client/BlueFireMultiplayerMod/deps/websocketpp"]
+	path = client/BlueFireMultiplayerMod/deps/websocketpp
+	url = https://github.com/zaphoyd/websocketpp
+[submodule "client/BlueFireMultiplayerMod/deps/json"]
+	path = client/BlueFireMultiplayerMod/deps/json
+	url = https://github.com/nlohmann/json
+[submodule "client/BlueFireMultiplayerMod/deps/tomlplusplus"]
+	path = client/BlueFireMultiplayerMod/deps/tomlplusplus
+	url = https://github.com/marzer/tomlplusplus
